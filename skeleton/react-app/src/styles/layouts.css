@@ -3,3 +3,12 @@ layout of elements on the page, it probably belongs here. Think flexboxes and
 grids, floats, margins and padding, positioning, display types.
 
 Naming convention: 'lo-'. EXAMPLE: 'lo-left-sidebar'*/
+
+.stamp-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stamp-box {
+  border: 0 black 1px;
+}
