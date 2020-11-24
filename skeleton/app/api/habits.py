@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, redirect, jsonify, request
 from app.models import db, User, Program, Habit, Member, DailyStamp
 from app.schemas import user_schema, program_schema, habit_schema, member_schema, dailystamp_schema
 from app.utils import dump_data_list
+from datetime import date
+import calendar
 
 habits = Blueprint("habits", __name__, url_prefix="/habits")
 
@@ -13,6 +15,13 @@ def program_habits(pid):
     habits = Habit.query.filter(Habit.program_id == pid).all()
     return jsonify(dump_data_list(habits, habit_schema))
   
+@habits.route("/current_week")
+def current_week():
+    """Get the past 7 days"""
+    current_date = date.today()
+    print(current_date)
+    current_dow = calendar.day_name[current_date.weekday()]
+    print(current_dow)
 
 # TESTED Functions
 @habits.route("/<int:hid>")
