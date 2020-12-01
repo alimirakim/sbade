@@ -99,3 +99,7 @@ body {
   margin: 0px;
   padding: 0px;
 }
+.MuiDialogContent-root {
+  background-color: navy;
+  color: white;
+}
